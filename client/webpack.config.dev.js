@@ -39,9 +39,9 @@ module.exports = {
         use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(png|jpg)$/i,
-        type: 'assets/resource'
-      }
+        test: /\.(png|jpg)$/,
+        type: 'asset',
+      },
     ]
   },
   plugins: [
