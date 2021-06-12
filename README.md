@@ -12,9 +12,9 @@ Contiene dos directorios:
 
 ## Versiones Lib
 
-Node - 15.14.0
-ReactJS - 17.0.2
-Webpack - 5.38.1
+- Node - 15.14.0
+- ReactJS - 17.0.2
+- Webpack - 5.38.1
 
 
 ## Api
