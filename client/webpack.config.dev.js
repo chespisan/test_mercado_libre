@@ -1,4 +1,6 @@
 const path = require('path')
+const webpack = require('webpack')
+const dotenv = require('dotenv')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -12,6 +14,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
+      '@context': path.resolve(__dirname, 'src/context/'),
       '@components': path.resolve(__dirname, 'src/components/'),
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
       '@containers': path.resolve(__dirname, 'src/containers/'),
@@ -45,6 +48,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(dotenv.config().parsed)
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html'
