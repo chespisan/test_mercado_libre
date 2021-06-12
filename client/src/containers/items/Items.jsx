@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 import queryString from 'query-string'
+import ROUTES from '@routes/routes'
 import AppContext from '@context/AppContext'
 import Layout from '@components/layout/Layout'
 import { getItems } from '@services/itemSearchService'
@@ -34,11 +35,11 @@ const Items = () => {
   }
 
   const goToItemDetail = (id) => {
-    history.push(`/items/${id}`)
+    history.push(`${ROUTES.ITEMS}/${id}`)
   }
 
   return (
-    <Layout>
+    <Layout title='Resultado búsqueda de productos' subtitle='En Mercado Libre podrás encontrar un gran listado de los productos que buscas'>
       {items.map((item) => (
         <div
           key={item?.id}

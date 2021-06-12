@@ -4,7 +4,7 @@ import queryString from 'query-string'
 import Search from '@assets/search-icon.png'
 import '@components/input/Input.scss'
 
-const Input = ({ _inputDebounce, searchProduct }) => {
+const Input = ({ searchProduct }) => {
   const { search } = useLocation()
   const { search: itemSearch } = queryString.parse(search)
   const [inputValue, setInputValue] = useState('')
@@ -17,7 +17,6 @@ const Input = ({ _inputDebounce, searchProduct }) => {
   const handleSearchInput = () => {
     const value = inputRef.current.value
     setInputValue(value)
-    // _inputDebounce(value)
   }
 
   const handleSearchProduct = () => {
@@ -43,6 +42,8 @@ const Input = ({ _inputDebounce, searchProduct }) => {
         src={Search}
         alt="buscador"
         onClick={handleSearchProduct}
+        height='16'
+        width='16'
       />
     </div>
   )

@@ -1,6 +1,5 @@
-import React, { useCallback, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router'
-import debounce from 'lodash.debounce'
 import ROUTES from '@routes/routes'
 import AppContext from '@context/AppContext'
 import Input from '@components/input/Input'
@@ -12,16 +11,6 @@ const Header = () => {
   const { resetDataProducts } = useContext(AppContext)
 
   const searchProduct = (value) => {
-    history.push(`${ROUTES.ITEMS}?search=${value}`)
-  }
-
-  const _inputDebounce = useCallback(
-    debounce((value) => goToItemsPage(value), 500),
-    [],
-  )
-
-  const goToItemsPage = (value) => {
-    if (value.length <= 0) return
     history.push(`${ROUTES.ITEMS}?search=${value}`)
   }
 
@@ -37,8 +26,10 @@ const Header = () => {
         src={Logo}
         alt="logo-mercado-libre"
         onClick={goToHomePage}
+        height='50'
+        width='100'
       />
-      <Input _inputDebounce={_inputDebounce} searchProduct={searchProduct} />
+      <Input searchProduct={searchProduct} />
     </div>
   )
 }

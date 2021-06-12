@@ -31,7 +31,7 @@ const ItemDetail = () => {
   const handleBuyProduct = () => { }
 
   return (
-    <Layout>
+    <Layout title='Detalle del producto' subtitle='En Mercado Libre podrás obtener el detalle de los productos que buscas'>
       {itemData && (
         <div className="container-item-detail">
           <div className="content-item-detail">
