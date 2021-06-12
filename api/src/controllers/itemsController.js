@@ -16,7 +16,7 @@ export const searchItems = async (req, res) => {
     requestResponse(res, 200, structureDataItems, 'Ok')
 
   } catch (error) {
-    console.log('err: entro?');
+
     const { response: { status, statusText } } = error
     requestResponse(res, status, null, statusText)
   }
@@ -45,6 +45,6 @@ const formatItems = items => {
 }
 
 const formatCategories = (categories, query) => {
-  if (!categories.length) return [query]
+  if (!categories.length) return [JSON.parse(query)]
   return categories[0].values[0].path_from_root.map(category => category.name)
 }
