@@ -1,29 +1,28 @@
-import React, { useState, useRef, useCallback } from 'react'
-import debounce from 'lodash.debounce'
+import React, { useState, useRef, useEffect } from 'react'
+import { useLocation } from 'react-router'
+import queryString from 'query-string'
 import Search from '@assets/search-icon.png'
 import './Input.scss'
 
-const Input = () => {
+const Input = ({ _inputDebounce }) => {
+  const { search } = useLocation();
+  const { search: itemSearch } = queryString.parse(search);
   const [inputValue, setInputValue] = useState('')
   const inputRef = useRef(null)
 
+  useEffect(() => {
+    setInputValue(itemSearch)
+  }, [itemSearch])
+
   const handleSearchInput = () => {
-    const inputValue = inputRef.current.value
-    setInputValue(inputValue)
-    if (inputValue.length < 2) return
-    _inputDebounce()
+    const value = inputRef.current.value
+    setInputValue(value)
+    _inputDebounce(value)
   }
-
-  const _inputDebounce = useCallback(debounce(() => searchItems(), 800), [])
-
-  const searchItems = async () => {
-    console.log('call service');
-  }
-
 
   return (
     <div className='container-input'>
-      <input className='input-search' type='text' name='search' placeholder='Nunca dejes de buscar' value={inputValue} onChange={handleSearchInput} ref={inputRef} />
+      <input className='input-search' autoComplete='off' type='text' name='search' placeholder='Nunca dejes de buscar' value={inputValue} onChange={handleSearchInput} ref={inputRef} />
       <img className='icon-search' src={Search} alt='buscador' />
     </div>
   )
