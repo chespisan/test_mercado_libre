@@ -1,4 +1,6 @@
 const path = require('path')
+const webpack = require('webpack')
+const dotenv = require('dotenv')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin')
@@ -16,6 +18,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
+      '@context': path.resolve(__dirname, 'src/context/'),
       '@components': path.resolve(__dirname, 'src/components/'),
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
       '@containers': path.resolve(__dirname, 'src/containers/'),
@@ -23,6 +26,7 @@ module.exports = {
       '@services': path.resolve(__dirname, 'src/services/'),
       '@routes': path.resolve(__dirname, 'src/routes/'),
       '@assets': path.resolve(__dirname, 'src/assets/'),
+      '@utils': path.resolve(__dirname, 'src/utils/'),
     }
   },
   module: {
@@ -43,12 +47,15 @@ module.exports = {
         use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(png|jpg)$/i,
-        type: 'assets/resource'
-      }
+        test: /\.(png|jpg)$/,
+        type: 'asset',
+      },
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(dotenv.config().parsed)
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html'
