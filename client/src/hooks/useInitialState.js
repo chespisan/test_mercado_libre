@@ -8,17 +8,26 @@ const initialState = {
 const useInitialState = () => {
   const [state, setState] = useState(initialState)
 
-  const addDataProducts = payload => {
+  const addDataProducts = (payload) => {
     setState({
       ...state,
       items: [...payload.items],
-      categories: [...payload.categories]
+      categories: [...payload.categories],
+    })
+  }
+
+  const resetDataProducts = () => {
+    setState({
+      ...state,
+      items: [],
+      categories: [],
     })
   }
 
   return {
     addDataProducts,
-    state
+    resetDataProducts,
+    state,
   }
 }
 

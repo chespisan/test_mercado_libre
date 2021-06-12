@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '@styles/variables.scss';
 
 .container-input {
   background-color: $light;
@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 74%;
 
   .input-search {
     background-color: $light;
@@ -25,6 +25,7 @@
 
   .icon-search {
     background-color: $light-gray;
+    cursor: pointer;
     padding: 8px;
     width: 16px;
   }

@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '@styles/variables.scss';
 
 .header {
   background-color: $yellow;
@@ -6,4 +6,19 @@
   align-items: center;
   justify-content: center;
   height: 80px;
+
+  .logo {
+    display: none;
+  }
+}
+
+
+@media (min-width: 600px) {
+  .header {
+    .logo {
+      cursor: pointer;
+      display: block;
+      width: 100px;
+    }
+  }
 }
