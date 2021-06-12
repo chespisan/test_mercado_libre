@@ -1,6 +1,6 @@
 # Test Mercado Libre
 
-Este es un test de Mercado libre, cuenta con una Api desarrollada en [NodeJS](https://nodejs.org/en/) [ExpressJS](https://expressjs.com/) y un Client con [ReactJS](https://reactjs.org/), 
+Este es un test de Mercado libre, cuenta con una Api desarrollada en [NodeJS](https://nodejs.org/en/) [ExpressJS](https://expressjs.com/) y un Client con [ReactJS](https://reactjs.org/)
 
 
 ## Información
