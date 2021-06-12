@@ -1,8 +1,11 @@
 import { Router } from 'express'
-import { searchItems } from '../controllers/itemsController'
+import { itemSearch } from '@controllers/itemSearchController'
+import { itemDescription } from '@controllers/itemDescriptionController'
 
 const itemRouting = Router()
 
-itemRouting.get('/api/items', searchItems)
+itemRouting.get('/api/items', itemSearch)
+itemRouting.get('/api/items/:id', itemDescription)
+
 
 export default itemRouting

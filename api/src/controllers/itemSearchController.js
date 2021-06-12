@@ -1,22 +1,22 @@
-import structureDataItems from '../utils/structureDataItems'
-import { itemsSearch } from '../services/itemsService'
-import { requestResponse } from '../utils/requestResponse'
+import structureData from '@utils/structureDataItems'
+import { getItemsSearch } from '@services/itemsService'
+import { requestResponse } from '@utils/requestResponse'
 
-export const searchItems = async (req, res) => {
+export const itemSearch = async (req, res) => {
   const { query: { q: query } } = req
+  let newStructureData = Object.assign({}, structureData)
+
 
   if (!query) return requestResponse(res, 404, null, 'failed')
 
   try {
-    const { results, filters } = await itemsSearch(query)
+    const { results, filters } = await getItemsSearch(query)
 
-    structureDataItems.categories = formatCategories(filters, query)
-    structureDataItems.items = formatItems(results)
+    newStructureData.categories = formatCategories(filters, query)
+    newStructureData.items = formatItems(results)
 
-    requestResponse(res, 200, structureDataItems, 'Ok')
-
+    requestResponse(res, 200, newStructureData, 'Ok')
   } catch (error) {
-
     const { response: { status, statusText } } = error
     requestResponse(res, status, null, statusText)
   }
