@@ -1,6 +1,6 @@
 {
   "name": "client-react",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Test Mercado Libre Client",
   "main": "index.js",
   "scripts": {
