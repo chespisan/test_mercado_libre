@@ -36,7 +36,7 @@ const ItemDetail = () => {
         <div className="container-item-detail">
           <div className="content-item-detail">
             <div className="content-image-item-detail">
-              <img className="image-item-detail" src={itemData.picture} />
+              <img className="image-item-detail" src={itemData.picture} alt='detalle de producto' />
             </div>
             <div className="content-price-item">
               <p className="conditional-item">
