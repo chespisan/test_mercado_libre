@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { categoryById } from '@controllers/categoryController'
+import { categoryById } from 'controllers/categoryController'
 
 const categoryRouting = Router()
 

@@ -1,8 +1,8 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import cors from 'cors'
-import itemRouting from '@routes/itemsRoute'
-import categoryRouting from '@routes/categoryRoute'
+import itemRouting from 'routes/itemsRoute'
+import categoryRouting from 'routes/categoryRoute'
 dotenv.config()
 
 const app = express()
