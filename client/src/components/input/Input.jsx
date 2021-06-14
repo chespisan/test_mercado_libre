@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useLocation } from 'react-router'
 import queryString from 'query-string'
-import Search from '@assets/search-icon.png'
-import '@components/input/Input.scss'
+import Search from 'assets/search-icon.png'
+import 'components/input/Input.scss'
 
 const Input = ({ searchProduct }) => {
   const { search } = useLocation()

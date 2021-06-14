@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router'
-import ROUTES from '@routes/routes'
-import AppContext from '@context/AppContext'
-import Input from '@components/input/Input'
-import Logo from '@assets/logo.png'
-import '@components/header/Header.scss'
+import ROUTES from 'routes/routes'
+import AppContext from 'context/AppContext'
+import Input from 'components/input/Input'
+import Logo from 'assets/logo.png'
+import 'components/header/Header.scss'
 
 const Header = () => {
   const history = useHistory()

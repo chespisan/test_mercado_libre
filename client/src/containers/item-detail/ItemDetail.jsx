@@ -1,21 +1,17 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import AppContext from '@context/AppContext'
-import Layout from '@components/layout/Layout'
-import Button from '@components/button/Button'
-import { getItemById } from '@services/itemDetailService'
-import { getCategoryById } from '@services/categoryService'
-import { currencyFormat } from '@utils/currencyFormat'
-import '@containers/item-detail/ItemDetail.scss'
+import AppContext from 'context/AppContext'
+import Layout from 'components/layout/Layout'
+import Button from 'components/button/Button'
+import { getItemById } from 'services/itemDetailService'
+import { getCategoryById } from 'services/categoryService'
+import { currencyFormat } from 'utils/currencyFormat'
+import 'containers/item-detail/ItemDetail.scss'
 
 const ItemDetail = () => {
   const [itemData, setItemData] = useState({})
   const { id } = useParams()
   const { addDataProducts } = useContext(AppContext)
-
-  useEffect(async () => {
-    await getItem(id)
-  }, [])
 
   const getItem = async (id) => {
     try {
@@ -29,6 +25,11 @@ const ItemDetail = () => {
   }
 
   const handleBuyProduct = () => { }
+
+  useEffect(() => {
+    getItem(id)
+  }, [])
+
 
   return (
     <Layout title='Detalle del producto' subtitle='En Mercado Libre podrás obtener el detalle de los productos que buscas'>

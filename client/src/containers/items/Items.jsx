@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 import queryString from 'query-string'
-import ROUTES from '@routes/routes'
-import AppContext from '@context/AppContext'
-import Layout from '@components/layout/Layout'
-import { getItems } from '@services/itemSearchService'
-import FreeShipping from '@assets/free-shipping-icon.png'
-import { currencyFormat } from '@utils/currencyFormat'
-import '@containers/items/Items.scss'
+import ROUTES from 'routes/routes'
+import AppContext from 'context/AppContext'
+import Layout from 'components/layout/Layout'
+import { getItems } from 'services/itemSearchService'
+import FreeShipping from 'assets/free-shipping-icon.png'
+import { currencyFormat } from 'utils/currencyFormat'
+import 'containers/items/Items.scss'
 
 const Items = () => {
   const history = useHistory()
@@ -18,9 +18,7 @@ const Items = () => {
     addDataProducts,
   } = useContext(AppContext)
 
-  useEffect(async () => {
-    await searchItems(itemSearch)
-  }, [itemSearch])
+
 
   const searchItems = async (value) => {
     try {
@@ -34,6 +32,10 @@ const Items = () => {
     }
   }
 
+  useEffect(() => {
+    searchItems(itemSearch)
+  }, [itemSearch])
+
   const goToItemDetail = (id) => {
     history.push(`${ROUTES.ITEMS}/${id}`)
   }
@@ -42,7 +44,7 @@ const Items = () => {
     <Layout title='Resultado búsqueda de productos' subtitle='En Mercado Libre podrás encontrar un gran listado de los productos que buscas'>
       {items.map((item) => (
         <div
-          key={item?.id}
+          key={item.id}
           className="container-item"
           onClick={() => goToItemDetail(item.id)}
         >

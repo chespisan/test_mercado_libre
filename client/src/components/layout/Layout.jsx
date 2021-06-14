@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Helmet from 'react-helmet'
-import AppContext from '@context/AppContext'
-import '@components/layout/Layout.scss'
+import AppContext from 'context/AppContext'
+import 'components/layout/Layout.scss'
 
 const Layout = ({ children, title, subtitle }) => {
   const {

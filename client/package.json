@@ -6,11 +6,14 @@
   "scripts": {
     "start": "webpack serve --open development  --config webpack.config.dev.js",
     "build": "webpack --mode production --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "author": "Sergio Sanchez",
   "license": "MIT",
   "dependencies": {
+    "-": "^0.0.1",
     "axios": "^0.21.1",
     "node-sass": "^6.0.0",
     "query-string": "^7.0.0",
@@ -25,18 +28,52 @@
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
+    "@testing-library/react-hooks": "^7.0.0",
+    "@types/jest": "^26.0.23",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
+    "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "*",
     "css-loader": "^5.2.6",
     "css-minimizer-webpack-plugin": "^3.0.1",
     "dotenv": "^10.0.0",
+    "enzyme": "^3.11.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
+    "jest": "^27.0.4",
     "mini-css-extract-plugin": "^1.6.0",
     "sass-loader": "^12.1.0",
     "terser-webpack-plugin": "^5.1.3",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/__test__/setupTest.js",
+      "<rootDir>/src/__test__/setEnvVars.js"
+    ],
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(styl|scss)$": "<rootDir>/src/__mocks__/styleMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
+      "^context/(.*)": "<rootDir>/src/context/$1",
+      "^components/(.*)": "<rootDir>/src/components/$1",
+      "^hooks/(.*)": "<rootDir>/src/hooks/$1",
+      "^containers/(.*)": "<rootDir>/src/containers/$1",
+      "^styles/(.*)": "<rootDir>/src/styles/$1",
+      "^assets/(.*)": "<rootDir>/src/assets/$1",
+      "^services/(.*)": "<rootDir>/src/services/$1",
+      "^routes/(.*)": "<rootDir>/src/routes/$1",
+      "^utils/(.*)": "<rootDir>/src/utils/$1"
+    },
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   }
 }
