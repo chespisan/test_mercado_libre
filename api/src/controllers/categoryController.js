@@ -1,5 +1,5 @@
-import { getCategoryById } from '@services/categoryService';
-import { requestResponse } from '@utils/requestResponse'
+import { getCategoryById } from 'services/categoryService';
+import { requestResponse } from 'utils/requestResponse'
 
 export const categoryById = async (req, res) => {
   const { params: { id } } = req

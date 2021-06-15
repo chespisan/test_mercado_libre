@@ -1,6 +1,6 @@
-import { getItemById } from '@services/itemsService';
-import { requestResponse } from '@utils/requestResponse'
-import structureData from '@utils/structureDataItems'
+import { getItemById } from 'services/itemsService';
+import { requestResponse } from 'utils/requestResponse'
+import structureData from 'utils/structureDataItems'
 
 
 export const itemDescription = async (req, res) => {

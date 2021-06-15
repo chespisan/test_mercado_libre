@@ -15,10 +15,10 @@ module.exports = {
   resolve: {
     extensions: ['.js'],
     alias: {
-      '@controllers': path.resolve(__dirname, 'src/controllers'),
-      '@routes': path.resolve(__dirname, 'src/routes'),
-      '@services': path.resolve(__dirname, 'src/services'),
-      '@utils': path.resolve(__dirname, 'src/utils'),
+      controllers: path.resolve(__dirname, 'src/controllers/'),
+      services: path.resolve(__dirname, 'src/services'),
+      routes: path.resolve(__dirname, 'src/routes'),
+      utils: path.resolve(__dirname, 'src/utils')
     }
   },
   module: {

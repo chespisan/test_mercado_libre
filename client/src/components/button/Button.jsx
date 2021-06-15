@@ -1,5 +1,5 @@
 import React from 'react'
-import '@components/button/Button.scss'
+import 'components/button/Button.scss'
 
 const Button = ({ children, type, handleBuyProduct }) => {
   return (
