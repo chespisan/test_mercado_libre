@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react-hooks'
-import useInitialState from "../../hooks/useInitialState";
+import useInitialState from "hooks/useInitialState";
 
 describe('Test custom Hook useInitialState', () => {
 

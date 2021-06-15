@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import Layout from 'components/layout/Layout'
-import AppContext from '../../../context/AppContext';
+import AppContext from 'context/AppContext';
 
 describe('Test component Layout', () => {
   let wrapper

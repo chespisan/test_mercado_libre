@@ -1,8 +1,8 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { MemoryRouter } from "react-router-dom";
-import AppContext from '../../../context/AppContext'
-import Header from '../../../components/header/Header'
+import AppContext from 'context/AppContext'
+import Header from 'components/header/Header'
 
 const mockHistoryPush = jest.fn();
 

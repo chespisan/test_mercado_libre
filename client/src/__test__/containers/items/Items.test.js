@@ -1,8 +1,9 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import ROUTES from '../../../routes/routes'
-import AppContext from '../../../context/AppContext'
+import ROUTES from 'routes/routes'
+import AppContext from 'context/AppContext'
 import Items from 'containers/items/Items'
+import * as itemService from 'services/itemSearchService'
 
 const mockHistoryPush = jest.fn();
 
@@ -47,6 +48,7 @@ describe('Test container Items', () => {
   }
 
   beforeEach(() => {
+    jest.spyOn(itemService, 'getItems').mockResolvedValue({data: state.state.items})
     jest.spyOn(React, "useEffect").mockImplementationOnce((f) => f());
     wrapper = mount(
       <AppContext.Provider value={state}>

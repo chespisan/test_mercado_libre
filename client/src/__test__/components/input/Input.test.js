@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { MemoryRouter } from "react-router-dom";
-import Input from '../../../components/input/Input'
+import Input from 'components/input/Input'
 
 
 jest.mock('react-router-dom', () => ({

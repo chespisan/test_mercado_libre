@@ -1,4 +1,4 @@
-import { currencyFormat } from '../../utils/currencyFormat'
+import { currencyFormat } from 'utils/currencyFormat'
 
 describe('Test Function currency', () => {
   test('Testing function currencyFormat success', () => {
